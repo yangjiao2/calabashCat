@@ -20,6 +20,7 @@ Resource
 --------
 
 1.__[Android-CleanArchitecture]__ https://github.com/android10/Android-CleanArchitecture
+
 2.__[Yelp API 2.0]__ https://www.yelp.com/developers/documentation/v2/overview
 
 Code style
