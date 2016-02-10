@@ -18,13 +18,12 @@ _Details of each schedule and task will be added later._
 
 Resource
 --------
-
 1.__[Android-CleanArchitecture]__ https://github.com/android10/Android-CleanArchitecture
 
-2.__[Yelp API 2.0]__ https://www.yelp.com/developers/documentation/v2/overview
+2.__[Yelp API  2.0]__ https://www.yelp.com/developers/documentation/v2/overview
 
 Code style
---------------------
+---------------------
 
 Here you can download and install the java codestyle. https://github.com/android10/java-code-styles
 
