@@ -18,7 +18,6 @@ package com.calabashCat.android.sample.data.datasource;
 import android.content.Context;
 
 import com.calabashCat.android.sample.data.cache.UserCache;
-import com.calabashCat.android.sample.data.entity.mapper.UserEntityJsonMapper;
 import com.calabashCat.android.sample.data.net.RestApi;
 import com.calabashCat.android.sample.data.cache.UserCacheImpl;
 import com.calabashCat.android.sample.data.net.RetrofitService;
@@ -66,7 +65,6 @@ public class UserDataStoreFactory {
 	 * Create {@link UserDataStore} to retrieve data from the Cloud.
 	 */
 	public UserDataStore createCloudDataStore() {
-		UserEntityJsonMapper userEntityJsonMapper = new UserEntityJsonMapper();
 		RestApi restApi = RetrofitService.getInstance().createApi();
 
 		return new CloudUserDataStore(restApi, this.userCache);

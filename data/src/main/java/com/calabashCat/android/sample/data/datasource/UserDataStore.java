@@ -15,8 +15,8 @@
  */
 package com.calabashCat.android.sample.data.datasource;
 
-import com.calabashCat.android.sample.data.entity.SearchResponse;
 import com.yelp.clientlib.entities.Business;
+import com.yelp.clientlib.entities.SearchResponse;
 
 import rx.Observable;
 
@@ -27,7 +27,7 @@ public interface UserDataStore {
   /**
    * Get an {@link rx.Observable} which will emit a List of {@link SearchResponse}.
    */
-  Observable<com.yelp.clientlib.entities.SearchResponse> getSearchResponse();
+  Observable<SearchResponse> getSearchResponse();
 
   /**
    * Get an {@link rx.Observable} which will emit a {@link Business} by its id.

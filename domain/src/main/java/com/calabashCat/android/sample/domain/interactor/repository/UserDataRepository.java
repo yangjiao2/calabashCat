@@ -18,8 +18,6 @@ package com.calabashCat.android.sample.domain.interactor.repository;
 import android.content.Context;
 
 import com.calabashCat.android.sample.data.dto.User;
-import com.calabashCat.android.sample.data.entity.SearchResponse;
-import com.calabashCat.android.sample.data.entity.mapper.UserEntityDataMapper;
 import com.calabashCat.android.sample.data.datasource.UserDataStore;
 import com.calabashCat.android.sample.data.datasource.UserDataStoreFactory;
 
@@ -34,57 +32,18 @@ import rx.functions.Func1;
 public class UserDataRepository implements UserRepository {
 
 	private UserDataStoreFactory userDataStoreFactory;
-	private UserEntityDataMapper userEntityDataMapper;
 
 	public UserDataRepository(Context appContext) {
-		this(new UserDataStoreFactory(appContext), new UserEntityDataMapper());
+		this.userDataStoreFactory = new UserDataStoreFactory(appContext);
 	}
 
-	/**
-	 * Constructs a {@link UserRepository}.
-	 *
-	 * @param dataStoreFactory     A factory to construct different data source implementations.
-	 * @param userEntityDataMapper {@link UserEntityDataMapper}.
-	 */
-	public UserDataRepository(UserDataStoreFactory dataStoreFactory,
-	                          UserEntityDataMapper userEntityDataMapper) {
-		this.userDataStoreFactory = dataStoreFactory;
-		this.userEntityDataMapper = userEntityDataMapper;
-	}
-
-	public void setUserDataStoreFactory(UserDataStoreFactory userDataStoreFactory) {
-		this.userDataStoreFactory = userDataStoreFactory;
-	}
-
-	public void setUserEntityDataMapper(UserEntityDataMapper userEntityDataMapper) {
-		this.userEntityDataMapper = userEntityDataMapper;
-	}
-
-	@SuppressWarnings("Convert2MethodRef")
 	@Override
 	public Observable<List<User>> users() {
-		//we always get all users from the cloud
-		final UserDataStore userDataStore = this.userDataStoreFactory.createCloudDataStore();
-
-		return userDataStore.getSearchResponse()
-				.map(new Func1<List<SearchResponse>, List<User>>() {
-					@Override
-					public List<User> call(List<SearchResponse> userEntities) {
-						return userEntityDataMapper.transform(userEntities);
-					}
-				});
+		return null;
 	}
 
-	@SuppressWarnings("Convert2MethodRef")
 	@Override
 	public Observable<User> user(int userId) {
-		final UserDataStore userDataStore = this.userDataStoreFactory.create(userId);
-		return userDataStore.getBusiness(userId)
-				.map(new Func1<SearchResponse, User>() {
-					@Override
-					public User call(SearchResponse searchResponse) {
-						return userEntityDataMapper.transform(searchResponse);
-					}
-				});
+		return null;
 	}
 }

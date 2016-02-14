@@ -16,7 +16,9 @@
 package com.calabashCat.android.sample.data.datasource;
 
 import com.calabashCat.android.sample.data.cache.UserCache;
-import com.calabashCat.android.sample.data.entity.SearchResponse;
+import com.yelp.clientlib.entities.Business;
+import com.yelp.clientlib.entities.SearchResponse;
+
 
 import java.util.List;
 import rx.Observable;
@@ -37,12 +39,13 @@ public class DiskUserDataStore implements UserDataStore {
     this.userCache = userCache;
   }
 
-  @Override public Observable<List<SearchResponse>> userEntityList() {
-    //TODO: implement simple cache for storing/retrieving collections of users.
-    throw new UnsupportedOperationException("Operation is not available!!!");
+  @Override
+  public Observable<SearchResponse> getSearchResponse() {
+    return null;
   }
 
-  @Override public Observable<SearchResponse> userEntityDetails(final int userId) {
-     return this.userCache.get(userId);
+  @Override
+  public Observable<Business> getBusiness(int userId) {
+    return null;
   }
 }
