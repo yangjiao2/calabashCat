@@ -1,14 +1,10 @@
 package com.calabashCat.android.sample.data.net;
 
 
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.OkHttpClient;
-import com.yelp.clientlib.exception.ErrorHandlingInterceptor;
-
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
-import retrofit.RxJavaCallAdapterFactory;
-
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 import se.akerfeldt.okhttp.signpost.SigningInterceptor;
 
@@ -24,9 +20,10 @@ public class RetrofitService {
     protected RetrofitService(String consumerKey, String consumerSecret, String token, String tokenSecret) {
         OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(consumerKey, consumerSecret);
         consumer.setTokenWithSecret(token, tokenSecret);
-        this.httpClient = new OkHttpClient();
-        this.httpClient.interceptors().add((Interceptor) new SigningInterceptor(consumer));
-        this.httpClient.interceptors().add(new ErrorHandlingInterceptor());
+        this.httpClient = new OkHttpClient.Builder()
+                .addInterceptor(new SigningInterceptor(consumer))
+                //.addInterceptor(new ErrorHandlingInterceptor())
+                .build();
     }
 
     private volatile static RetrofitService instance = null;
@@ -46,9 +43,9 @@ public class RetrofitService {
 
         return new Retrofit.Builder()
                             .baseUrl(API_BASE_URL)
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                            .client(httpClient)
-                            .build().create(RestApi.class);
+                .client(httpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build().create(RestApi.class);
     }
 }

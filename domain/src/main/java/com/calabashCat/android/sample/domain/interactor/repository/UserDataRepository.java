@@ -20,6 +20,7 @@ import android.content.Context;
 import com.calabashCat.android.sample.data.dto.User;
 import com.calabashCat.android.sample.data.datasource.UserDataStore;
 import com.calabashCat.android.sample.data.datasource.UserDataStoreFactory;
+import com.yelp.clientlib.entities.SearchResponse;
 
 import java.util.List;
 
@@ -39,6 +40,8 @@ public class UserDataRepository implements UserRepository {
 
 	@Override
 	public Observable<List<User>> users() {
+		final UserDataStore userDataStore = this.userDataStoreFactory.createCloudDataStore();
+		Observable<SearchResponse> searchResponse = userDataStore.getSearchResponse();
 		return null;
 	}
 

@@ -4,6 +4,7 @@ package com.calabashCat.android.sample.presentation.viewmodel;
 import android.content.Intent;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
+import android.util.Log;
 import android.view.View;
 
 import com.calabashCat.android.sample.data.dto.User;
@@ -16,6 +17,7 @@ import com.calabashCat.android.sample.presentation.model.UserModel;
 import com.calabashCat.android.sample.presentation.navigation.ActivityNavigator;
 import com.calabashCat.android.sample.presentation.view.activity.BusinessDetailsActivity;
 import com.calabashCat.android.sample.presentation.view.adapter.BusinessesAdapter;
+import com.yelp.clientlib.entities.SearchResponse;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,7 +32,6 @@ public class UserListViewModel extends LoadingViewModel {
 	public final ObservableField<BusinessesAdapter> usersListAdapter = new ObservableField<>();
 
 	UseCase getUserList = new GetUserList(AndroidApplication.getContext());
-	UserModelDataMapper userModelDataMapper = new UserModelDataMapper();
 
 
 	@BindView
@@ -66,13 +67,13 @@ public class UserListViewModel extends LoadingViewModel {
 			return;
 		}
 		showLoading();
-		getUserList.execute(new DefaultSubscriber<List<User>>() {
+		getUserList.execute(new DefaultSubscriber<SearchResponse>() {
 			@Override
-			public void onNext(List<User> users) {
-				Collection<UserModel> userModelsCollection = userModelDataMapper.transformUsers(users);
-				BusinessesAdapter businessesAdapter = new BusinessesAdapter(AndroidApplication.getContext(), userModelsCollection);
-				businessesAdapter.setOnItemClickListener(onUserItemClick());
-				showContentList(businessesAdapter);
+			public void onNext(SearchResponse searchResponse) {
+
+				Log.d("a","a");
+				//businessesAdapter.setOnItemClickListener(onUserItemClick());
+				//showContentList(businessesAdapter);
 			}
 
 			@Override

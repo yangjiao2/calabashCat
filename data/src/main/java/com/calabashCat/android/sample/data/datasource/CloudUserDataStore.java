@@ -15,6 +15,8 @@
  */
 package com.calabashCat.android.sample.data.datasource;
 
+import android.widget.Toast;
+
 import com.calabashCat.android.sample.data.cache.UserCache;
 import com.calabashCat.android.sample.data.net.RestApi;
 import com.yelp.clientlib.entities.Business;
@@ -24,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
 import rx.functions.Action1;
 
 /**
@@ -56,15 +60,28 @@ public class CloudUserDataStore implements UserDataStore {
 
 	@Override
 	public Observable<SearchResponse> getSearchResponse() {
-		Map<String, String> params = new HashMap<>();
 
-		// general params
-		params.put("term", "food");
-		params.put("limit", "3");
+		Observable.create(new Observable.OnSubscribe<SearchResponse>() {
+			@Override
+			public void call(Subscriber<? super SearchResponse> subscriber) {
+				Map<String, String> params = new HashMap<>();
 
-		// locale params
-		params.put("lang", "fr");
-		return this.restApi.search("San Francisco", params);
+				// general params
+				params.put("term", "food");
+				params.put("limit", "3");
+
+				// locale params
+				params.put("lang", "fr");
+				Observable<SearchResponse> ret = restApi.search("San Francisco", params);
+			}
+		}).subscribe(new Action1<SearchResponse>() {
+			@Override
+			public void call(SearchResponse searchResponse) {
+
+			}
+		});
+
+		return null;
 	}
 
 	@Override
