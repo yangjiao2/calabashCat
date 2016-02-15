@@ -61,27 +61,29 @@ public class CloudUserDataStore implements UserDataStore {
 	@Override
 	public Observable<SearchResponse> getSearchResponse() {
 
-		Observable.create(new Observable.OnSubscribe<SearchResponse>() {
-			@Override
-			public void call(Subscriber<? super SearchResponse> subscriber) {
-				Map<String, String> params = new HashMap<>();
+//		Observable.create(new Observable.OnSubscribe<SearchResponse>() {
+//			@Override
+//			public void call(Subscriber<? super SearchResponse> subscriber) {
+//
+//			}
+//		}).subscribe(new Action1<SearchResponse>() {
+//			@Override
+//			public void call(SearchResponse searchResponse) {
+//             ;
+//			}
+//		});
 
-				// general params
-				params.put("term", "food");
-				params.put("limit", "3");
+		Map<String, String> params = new HashMap<>();
 
-				// locale params
-				params.put("lang", "fr");
-				Observable<SearchResponse> ret = restApi.search("San Francisco", params);
-			}
-		}).subscribe(new Action1<SearchResponse>() {
-			@Override
-			public void call(SearchResponse searchResponse) {
+		// general params
+		params.put("term", "food");
+		params.put("limit", "3");
 
-			}
-		});
+		// locale params
+		params.put("lang", "fr");
+		Observable<SearchResponse> ret = restApi.search("San Francisco", params);
 
-		return null;
+		return ret;
 	}
 
 	@Override

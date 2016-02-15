@@ -20,12 +20,13 @@ import android.content.Context;
 
 import com.calabashCat.android.sample.domain.interactor.repository.UserDataRepository;
 import com.calabashCat.android.sample.domain.interactor.repository.UserRepository;
+import com.yelp.clientlib.entities.SearchResponse;
 
 import rx.Observable;
 
 /**
  * This class is an implementation of {@link UseCase} that represents a use case for
- * retrieving a collection of all {@link User}.
+ * retrieving a collection of all {@link SearchResponse}.
  */
 public class GetUserList extends UseCase {
 
@@ -45,6 +46,6 @@ public class GetUserList extends UseCase {
 
 	@Override
 	public Observable buildUseCaseObservable() {
-		return this.userRepository.users();
+		return this.userRepository.getSearchResponse();
 	}
 }

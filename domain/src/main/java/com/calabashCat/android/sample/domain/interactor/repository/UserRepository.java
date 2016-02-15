@@ -17,6 +17,7 @@ package com.calabashCat.android.sample.domain.interactor.repository;
 
 
 import com.calabashCat.android.sample.data.dto.User;
+import com.yelp.clientlib.entities.SearchResponse;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public interface UserRepository {
 	/**
 	 * Get an {@link Observable} which will emit a List of {@link User}.
 	 */
-	Observable<List<User>> users();
+	Observable<SearchResponse> getSearchResponse();
 
 	/**
 	 * Get an {@link Observable} which will emit a {@link User}.

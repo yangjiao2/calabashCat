@@ -39,10 +39,10 @@ public class UserDataRepository implements UserRepository {
 	}
 
 	@Override
-	public Observable<List<User>> users() {
+	public Observable<SearchResponse> getSearchResponse() {
 		final UserDataStore userDataStore = this.userDataStoreFactory.createCloudDataStore();
 		Observable<SearchResponse> searchResponse = userDataStore.getSearchResponse();
-		return null;
+		return searchResponse;
 	}
 
 	@Override
