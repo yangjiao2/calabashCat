@@ -15,7 +15,8 @@
  */
 package com.calabashCat.android.sample.data.cache;
 
-import com.yelp.clientlib.entities.SearchResponse;
+
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 
 import rx.Observable;
 

@@ -18,10 +18,10 @@ package com.calabashCat.android.sample.data.cache;
 import android.content.Context;
 
 import com.calabashCat.android.sample.data.cache.serializer.JsonSerializer;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 import com.calabashCat.android.sample.data.exception.UserNotFoundException;
 import com.calabashCat.android.sample.data.executor.JobExecutor;
 import com.calabashCat.android.sample.data.executor.ThreadExecutor;
-import com.yelp.clientlib.entities.SearchResponse;
 
 import java.io.File;
 

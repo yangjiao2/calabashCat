@@ -17,7 +17,7 @@ package com.calabashCat.android.sample.domain.interactor.repository;
 
 
 import com.calabashCat.android.sample.data.dto.User;
-import com.yelp.clientlib.entities.SearchResponse;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 
 import java.util.List;
 

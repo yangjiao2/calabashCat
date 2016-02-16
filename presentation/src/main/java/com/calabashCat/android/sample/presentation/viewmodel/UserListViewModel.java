@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.calabashCat.android.sample.data.dto.User;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 import com.calabashCat.android.sample.domain.interactor.DefaultSubscriber;
 import com.calabashCat.android.sample.domain.interactor.GetUserList;
 import com.calabashCat.android.sample.domain.interactor.UseCase;
@@ -17,7 +18,6 @@ import com.calabashCat.android.sample.presentation.model.UserModel;
 import com.calabashCat.android.sample.presentation.navigation.ActivityNavigator;
 import com.calabashCat.android.sample.presentation.view.activity.BusinessDetailsActivity;
 import com.calabashCat.android.sample.presentation.view.adapter.BusinessesAdapter;
-import com.yelp.clientlib.entities.SearchResponse;
 
 import java.util.Collection;
 import java.util.List;

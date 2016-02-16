@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 package com.calabashCat.android.sample.data.cache.serializer;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 import com.google.gson.Gson;
-import com.yelp.clientlib.entities.SearchResponse;
 
 /**
  * Class user as Serializer/Deserializer for user entities.

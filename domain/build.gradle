@@ -41,5 +41,4 @@ dependencies {
   testCompile testDependencies.junit
   testCompile testDependencies.mockito
 
-  compile 'com.yelp.clientlib:yelp-android:1.0.0'
 }

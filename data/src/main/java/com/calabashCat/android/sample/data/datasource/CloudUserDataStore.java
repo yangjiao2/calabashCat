@@ -18,9 +18,9 @@ package com.calabashCat.android.sample.data.datasource;
 import android.widget.Toast;
 
 import com.calabashCat.android.sample.data.cache.UserCache;
+import com.calabashCat.android.sample.data.entities.Business;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 import com.calabashCat.android.sample.data.net.RestApi;
-import com.yelp.clientlib.entities.Business;
-import com.yelp.clientlib.entities.SearchResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -83,6 +83,7 @@ public class CloudUserDataStore implements UserDataStore {
 		// locale params
 		params.put("lang", "fr");
 		Observable<SearchResponse> response = restApi.search("San Francisco", params);
+		SearchResponse s;
 
 		return response;
 	}

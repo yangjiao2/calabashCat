@@ -1,9 +1,9 @@
 package com.calabashCat.android.sample.data.net;
 
-import com.yelp.clientlib.entities.Business;
-import com.yelp.clientlib.entities.SearchResponse;
-import com.yelp.clientlib.entities.options.BoundingBoxOptions;
-import com.yelp.clientlib.entities.options.CoordinateOptions;
+import com.calabashCat.android.sample.data.entities.Business;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
+import com.calabashCat.android.sample.data.entities.options.BoundingBoxOptions;
+import com.calabashCat.android.sample.data.entities.options.CoordinateOptions;
 
 import java.util.Map;
 

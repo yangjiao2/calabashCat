@@ -20,7 +20,6 @@ import android.content.Context;
 
 import com.calabashCat.android.sample.domain.interactor.repository.UserDataRepository;
 import com.calabashCat.android.sample.domain.interactor.repository.UserRepository;
-import com.yelp.clientlib.entities.SearchResponse;
 
 import rx.Observable;
 

@@ -60,5 +60,9 @@ dependencies {
   compile 'io.reactivex:rxandroid:1.0.1'
   compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
   //compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
-  compile 'com.yelp.clientlib:yelp-android:1.0.0'
+
+  compile 'com.google.auto.value:auto-value:1.1'
+  compile 'com.fasterxml.jackson.core:jackson-core:2.4.1'
+  compile 'com.fasterxml.jackson.core:jackson-annotations:2.4.1'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.4.1'
 }

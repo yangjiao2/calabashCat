@@ -20,7 +20,7 @@ import android.content.Context;
 import com.calabashCat.android.sample.data.dto.User;
 import com.calabashCat.android.sample.data.datasource.UserDataStore;
 import com.calabashCat.android.sample.data.datasource.UserDataStoreFactory;
-import com.yelp.clientlib.entities.SearchResponse;
+import com.calabashCat.android.sample.data.entities.SearchResponse;
 
 import java.util.List;
 
