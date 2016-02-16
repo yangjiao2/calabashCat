@@ -24,6 +24,7 @@ import com.yelp.clientlib.entities.SearchResponse;
 
 import java.util.List;
 
+import retrofit2.Response;
 import rx.Observable;
 import rx.functions.Func1;
 

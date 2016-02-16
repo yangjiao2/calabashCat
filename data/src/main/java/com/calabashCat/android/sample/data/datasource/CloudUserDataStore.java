@@ -25,6 +25,7 @@ import com.yelp.clientlib.entities.SearchResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+import retrofit2.Response;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -81,9 +82,9 @@ public class CloudUserDataStore implements UserDataStore {
 
 		// locale params
 		params.put("lang", "fr");
-		Observable<SearchResponse> ret = restApi.search("San Francisco", params);
+		Observable<SearchResponse> response = restApi.search("San Francisco", params);
 
-		return ret;
+		return response;
 	}
 
 	@Override

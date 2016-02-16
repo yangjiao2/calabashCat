@@ -77,6 +77,11 @@ public class UserListViewModel extends LoadingViewModel {
 			}
 
 			@Override
+			public void onCompleted() {
+				super.onCompleted();
+			}
+
+			@Override
 			public void onError(Throwable e) {
 				showRetry();
 			}

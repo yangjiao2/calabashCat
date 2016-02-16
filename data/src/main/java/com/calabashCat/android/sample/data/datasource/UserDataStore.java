@@ -18,6 +18,7 @@ package com.calabashCat.android.sample.data.datasource;
 import com.yelp.clientlib.entities.Business;
 import com.yelp.clientlib.entities.SearchResponse;
 
+import retrofit2.Response;
 import rx.Observable;
 
 /**
