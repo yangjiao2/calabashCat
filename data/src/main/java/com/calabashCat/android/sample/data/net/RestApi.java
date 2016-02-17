@@ -1,5 +1,6 @@
 package com.calabashCat.android.sample.data.net;
 
+import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
 
 
@@ -21,7 +22,7 @@ public interface RestApi {
      * @see <a href = https://www.yelp.com/developers/documentation/v2/business>https://www.yelp.com/developers/documentation/v2/business</a>
      */
     @GET("/v2/business/{businessId}")
-    Observable<SearchResponse.Business> getBusiness(@Path("businessId") String businessId);
+    Observable<Business> getBusiness(@Path("businessId") String businessId);
 
     /**
      * Make a request to the business endpoint.
@@ -33,7 +34,7 @@ public interface RestApi {
      * @see <a href = https://www.yelp.com/developers/documentation/v2/business>https://www.yelp.com/developers/documentation/v2/business</a>
      */
     @GET("/v2/business/{businessId}")
-    Observable<SearchResponse.Business> getBusiness(@Path("businessId") String businessId, @QueryMap Map<String, String> params);
+    Observable<Business> getBusiness(@Path("businessId") String businessId, @QueryMap Map<String, String> params);
 
     /**
      * Make a request to the phone search endpoint.

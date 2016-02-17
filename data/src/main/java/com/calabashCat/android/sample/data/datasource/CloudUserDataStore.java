@@ -18,8 +18,8 @@ package com.calabashCat.android.sample.data.datasource;
 import android.widget.Toast;
 
 import com.calabashCat.android.sample.data.cache.UserCache;
+import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
-import com.calabashCat.android.sample.data.entities.SearchResponse.Business;
 import com.calabashCat.android.sample.data.net.RestApi;
 
 import java.util.HashMap;
@@ -78,7 +78,7 @@ public class CloudUserDataStore implements UserDataStore {
 
 		// general params
 		params.put("term", "food");
-		params.put("limit", "3");
+		params.put("limit", "5");
 
 		// locale params
 		params.put("lang", "fr");

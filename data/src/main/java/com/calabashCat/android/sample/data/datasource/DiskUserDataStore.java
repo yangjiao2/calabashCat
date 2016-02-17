@@ -16,12 +16,8 @@
 package com.calabashCat.android.sample.data.datasource;
 
 import com.calabashCat.android.sample.data.cache.UserCache;
+import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
-
-
-import java.util.List;
-
-import retrofit2.Response;
 import rx.Observable;
 
 /**
@@ -46,7 +42,7 @@ public class DiskUserDataStore implements UserDataStore {
   }
 
   @Override
-  public Observable<SearchResponse.Business> getBusiness(int userId) {
+  public Observable<Business> getBusiness(int userId) {
     return null;
   }
 }

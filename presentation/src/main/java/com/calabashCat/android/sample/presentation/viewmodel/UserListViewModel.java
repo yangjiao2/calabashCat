@@ -7,6 +7,7 @@ import android.databinding.ObservableField;
 import android.util.Log;
 import android.view.View;
 
+import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
 import com.calabashCat.android.sample.domain.interactor.DefaultSubscriber;
 import com.calabashCat.android.sample.domain.interactor.GetUserList;
@@ -70,9 +71,11 @@ public class UserListViewModel extends LoadingViewModel {
 			@Override
 			public void onNext(SearchResponse searchResponse) {
 
-				Log.d("a","a");
-				//businessesAdapter.setOnItemClickListener(onUserItemClick());
-				//showContentList(businessesAdapter);
+				Log.d("a", "a");
+				Collection<Business> collection = searchResponse.getBusinesses();
+				BusinessesAdapter businessesAdapter = new BusinessesAdapter(AndroidApplication.getContext(), collection);
+				businessesAdapter.setOnItemClickListener(onUserItemClick());
+				showContentList(businessesAdapter);
 			}
 
 			@Override
@@ -94,7 +97,6 @@ public class UserListViewModel extends LoadingViewModel {
 			@Override
 			public void onClick(View v) {
 				loadUsersCommand();
-
 			}
 		};
 	}
@@ -102,8 +104,9 @@ public class UserListViewModel extends LoadingViewModel {
 	public BusinessesAdapter.OnItemClickListener onUserItemClick() {
 		return new BusinessesAdapter.OnItemClickListener() {
 			@Override
-			public void onUserItemClicked(UserModel userModel) {
-				Intent intent = BusinessDetailsActivity.getCallingIntent(AndroidApplication.getInstance().getCurrentActivity(), userModel.getUserId());
+			public void onUserItemClicked(Business userModel) {
+				Intent intent = BusinessDetailsActivity.getCallingIntent(AndroidApplication.getInstance()
+						.getCurrentActivity(), userModel.getReview_count());
 				ActivityNavigator.navigateTo(BusinessDetailsActivity.class, intent);
 			}
 		};

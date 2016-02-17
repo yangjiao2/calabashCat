@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.presentation.R;
 import com.calabashCat.android.sample.presentation.RowUserBinding;
 import com.calabashCat.android.sample.presentation.model.UserModel;
@@ -29,24 +30,24 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 	private RowUserBinding rowUserBinding;
 
 	public interface OnItemClickListener {
-		void onUserItemClicked(UserModel userModel);
+		void onUserItemClicked(Business userModel);
 	}
 
-	private List<UserModel> usersCollection;
+	private List<Business> businessCollection;
 	private final LayoutInflater layoutInflater;
 
 	private OnItemClickListener onItemClickListener;
 
-	public BusinessesAdapter(Context context, Collection<UserModel> usersCollection) {
-		this.validateUsersCollection(usersCollection);
+	public BusinessesAdapter(Context context, Collection<Business> businessCollection) {
+		this.validateUsersCollection(businessCollection);
 		this.layoutInflater =
 				(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		this.usersCollection = (List<UserModel>) usersCollection;
+		this.businessCollection = (List<Business>) businessCollection;
 	}
 
 	@Override
 	public int getItemCount() {
-		return (this.usersCollection != null) ? this.usersCollection.size() : 0;
+		return (this.businessCollection != null) ? this.businessCollection.size() : 0;
 	}
 
 	@Override
@@ -58,8 +59,8 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 
 	@Override
 	public void onBindViewHolder(UserViewHolder holder, final int position) {
-		final UserModel userModel = this.usersCollection.get(position);
-		holder.textViewTitle.setText(userModel.getFullName());
+		final Business userModel = this.businessCollection.get(position);
+		holder.textViewTitle.setText(userModel.getName());
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -75,9 +76,9 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 		return position;
 	}
 
-	public void setUsersCollection(Collection<UserModel> usersCollection) {
-		this.validateUsersCollection(usersCollection);
-		this.usersCollection = (List<UserModel>) usersCollection;
+	public void setUsersCollection(Collection<Business> businessCollection) {
+		this.validateUsersCollection(businessCollection);
+		this.businessCollection = (List<Business>) businessCollection;
 		this.notifyDataSetChanged();
 	}
 
@@ -85,8 +86,8 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 		this.onItemClickListener = onItemClickListener;
 	}
 
-	private void validateUsersCollection(Collection<UserModel> usersCollection) {
-		if (usersCollection == null) {
+	private void validateUsersCollection(Collection<Business> businessCollection) {
+		if (businessCollection == null) {
 			throw new IllegalArgumentException("The list cannot be null");
 		}
 	}

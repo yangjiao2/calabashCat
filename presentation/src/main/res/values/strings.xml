@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">CalabashCat</string>
-  <string name="url">&lt;a href="http://rocko.xyz">http://rocko.xyz&lt;/a></string>
+  <string name="url">&lt;a href="https://github.com/BitTigerInst/calabashCat">github&lt;/a></string>
 
   <string name="activity_title_user_list">Users List</string>
   <string name="activity_title_user_details">User Details</string>
