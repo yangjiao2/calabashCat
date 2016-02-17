@@ -1,6 +1,6 @@
 package com.calabashCat.android.sample.data.entities;
 
-public class Coordinate {
+public class Center {
     private double latitude;
     private double longitude;
 

@@ -1,80 +1,101 @@
 package com.calabashCat.android.sample.data.entities;
 
-import com.calabashCat.android.sample.data.annotation.Nullable;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.google.auto.value.AutoValue;
+import java.util.List;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+public class Location {
+    private String cross_streets;
+    private String city;
+    private double geo_accuracy;
+    private String postal_code;
+    private String country_code;
+    /**
+     * latitude : 37.7810450986458
+     * longitude : -122.395337771053
+     */
 
-@AutoValue
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(builder = AutoValue_Location.Builder.class)
-public abstract class Location implements Serializable {
+    private Coordinate coordinate;
+    private String state_code;
+    private List<String> display_address;
+    private List<String> neighborhoods;
+    private List<String> address;
 
-    @Nullable
-    public abstract ArrayList<String> address();
-
-    @Nullable
-    public abstract String city();
-
-    @Nullable
-    public abstract Coordinate coordinate();
-
-    @Nullable
-    public abstract String countryCode();
-
-    @Nullable
-    public abstract String crossStreets();
-
-    @Nullable
-    public abstract ArrayList<String> displayAddress();
-
-    @Nullable
-    public abstract Double geoAccuracy();
-
-    @Nullable
-    public abstract ArrayList<String> neighborhoods();
-
-    @Nullable
-    public abstract String postalCode();
-
-    @Nullable
-    public abstract String stateCode();
-
-    @AutoValue.Builder
-    @JsonPOJOBuilder(withPrefix = "")
-    @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
-    public abstract static class Builder {
-
-        public abstract Builder address(ArrayList<String> address);
-
-        public abstract Builder city(String city);
-
-        public abstract Builder coordinate(Coordinate coordinate);
-
-        public abstract Builder countryCode(String countryCode);
-
-        public abstract Builder crossStreets(String crossStreets);
-
-        public abstract Builder displayAddress(ArrayList<String> displayAddress);
-
-        public abstract Builder geoAccuracy(Double geoAccuracy);
-
-        public abstract Builder neighborhoods(ArrayList<String> neighborhoods);
-
-        public abstract Builder postalCode(String postalCode);
-
-        public abstract Builder stateCode(String stateCode);
-
-        public abstract Location build();
+    public void setCross_streets(String cross_streets) {
+        this.cross_streets = cross_streets;
     }
 
-    public static Builder builder() {
-        return new AutoValue_Location.Builder();
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setGeo_accuracy(double geo_accuracy) {
+        this.geo_accuracy = geo_accuracy;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public void setCountry_code(String country_code) {
+        this.country_code = country_code;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public void setState_code(String state_code) {
+        this.state_code = state_code;
+    }
+
+    public void setDisplay_address(List<String> display_address) {
+        this.display_address = display_address;
+    }
+
+    public void setNeighborhoods(List<String> neighborhoods) {
+        this.neighborhoods = neighborhoods;
+    }
+
+    public void setAddress(List<String> address) {
+        this.address = address;
+    }
+
+    public String getCross_streets() {
+        return cross_streets;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public double getGeo_accuracy() {
+        return geo_accuracy;
+    }
+
+    public String getPostal_code() {
+        return postal_code;
+    }
+
+    public String getCountry_code() {
+        return country_code;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public String getState_code() {
+        return state_code;
+    }
+
+    public List<String> getDisplay_address() {
+        return display_address;
+    }
+
+    public List<String> getNeighborhoods() {
+        return neighborhoods;
+    }
+
+    public List<String> getAddress() {
+        return address;
     }
 }

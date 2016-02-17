@@ -16,7 +16,6 @@
 package com.calabashCat.android.sample.data.datasource;
 
 
-import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
 import rx.Observable;
 
@@ -34,5 +33,5 @@ public interface UserDataStore {
    *
    * @param userId The id to retrieve user data.
    */
-  Observable<Business> getBusiness(final int userId);
+  Observable<SearchResponse.Business> getBusiness(final int userId);
 }

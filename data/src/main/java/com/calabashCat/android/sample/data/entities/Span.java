@@ -1,36 +1,22 @@
 package com.calabashCat.android.sample.data.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.google.auto.value.AutoValue;
+public class Span {
+    private double latitude_delta;
+    private double longitude_delta;
 
-import java.io.Serializable;
-
-@AutoValue
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(builder = AutoValue_Span.Builder.class)
-public abstract class Span implements Serializable {
-
-    public abstract Double latitudeDelta();
-
-    public abstract Double longitudeDelta();
-
-    @AutoValue.Builder
-    @JsonPOJOBuilder(withPrefix = "")
-    @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
-    public abstract static class Builder {
-
-        public abstract Builder latitudeDelta(Double latitudeDelta);
-
-        public abstract Builder longitudeDelta(Double longitudeDelta);
-
-        public abstract Span build();
+    public void setLatitude_delta(double latitude_delta) {
+        this.latitude_delta = latitude_delta;
     }
 
-    public static Builder builder() {
-        return new AutoValue_Span.Builder();
+    public void setLongitude_delta(double longitude_delta) {
+        this.longitude_delta = longitude_delta;
+    }
+
+    public double getLatitude_delta() {
+        return latitude_delta;
+    }
+
+    public double getLongitude_delta() {
+        return longitude_delta;
     }
 }

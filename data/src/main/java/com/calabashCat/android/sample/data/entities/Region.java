@@ -1,36 +1,32 @@
 package com.calabashCat.android.sample.data.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.google.auto.value.AutoValue;
+public class Region {
+    /**
+     * latitude_delta : 0.04693337000000497
+     * longitude_delta : 0.03879615184169438
+     */
 
-import java.io.Serializable;
+    private Span span;
+    /**
+     * latitude : 37.78578235
+     * longitude : -122.4129723855265
+     */
 
-@AutoValue
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(builder = AutoValue_Region.Builder.class)
-public abstract class Region implements Serializable {
+    private Center center;
 
-    public abstract Coordinate center();
-
-    public abstract Span span();
-
-    @AutoValue.Builder
-    @JsonPOJOBuilder(withPrefix = "")
-    @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
-    public abstract static class Builder {
-
-        public abstract Builder center(Coordinate center);
-
-        public abstract Builder span(Span span);
-
-        public abstract Region build();
+    public void setSpan(Span span) {
+        this.span = span;
     }
 
-    public static Builder builder() {
-        return new AutoValue_Region.Builder();
+    public void setCenter(Center center) {
+        this.center = center;
+    }
+
+    public Span getSpan() {
+        return span;
+    }
+
+    public Center getCenter() {
+        return center;
     }
 }

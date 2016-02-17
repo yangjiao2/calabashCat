@@ -18,8 +18,8 @@ package com.calabashCat.android.sample.data.datasource;
 import android.widget.Toast;
 
 import com.calabashCat.android.sample.data.cache.UserCache;
-import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
+import com.calabashCat.android.sample.data.entities.SearchResponse.Business;
 import com.calabashCat.android.sample.data.net.RestApi;
 
 import java.util.HashMap;

@@ -7,7 +7,6 @@ import android.databinding.ObservableField;
 import android.util.Log;
 import android.view.View;
 
-import com.calabashCat.android.sample.data.dto.User;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
 import com.calabashCat.android.sample.domain.interactor.DefaultSubscriber;
 import com.calabashCat.android.sample.domain.interactor.GetUserList;
