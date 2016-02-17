@@ -62,18 +62,6 @@ public class CloudUserDataStore implements UserDataStore {
 	@Override
 	public Observable<SearchResponse> getSearchResponse() {
 
-//		Observable.create(new Observable.OnSubscribe<SearchResponse>() {
-//			@Override
-//			public void call(Subscriber<? super SearchResponse> subscriber) {
-//
-//			}
-//		}).subscribe(new Action1<SearchResponse>() {
-//			@Override
-//			public void call(SearchResponse searchResponse) {
-//             ;
-//			}
-//		});
-
 		Map<String, String> params = new HashMap<>();
 
 		// general params
@@ -83,7 +71,6 @@ public class CloudUserDataStore implements UserDataStore {
 		// locale params
 		params.put("lang", "fr");
 		Observable<SearchResponse> response = restApi.search("San Francisco", params);
-		SearchResponse s;
 
 		return response;
 	}
