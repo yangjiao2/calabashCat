@@ -1,7 +1,7 @@
-# calabashCat
+#calabashCat 
+<img src="logo.png" width="108px" height="96px" /> 
+##Description
 
-Description
------------
 
 Build something new and awesome with Yelp’s API
 
@@ -22,6 +22,8 @@ Resource
 
 2.__[Yelp API  2.0]__ https://www.yelp.com/developers/documentation/v2/overview
 
+3.__[RxJava + Data Binding]__
+
 Code style
 ---------------------
 
@@ -41,3 +43,5 @@ Owner
 -----
 
 @team: calabashCat 
+
+<img src="bittigerlogo.png" width="108px" height="96px" /> 
