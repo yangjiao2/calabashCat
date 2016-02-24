@@ -11,8 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.presentation.R;
 import com.calabashCat.android.sample.presentation.RowUserBinding;
@@ -35,10 +37,11 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 
 	private List<Business> businessCollection;
 	private final LayoutInflater layoutInflater;
-
+	private Context mContext;
 	private OnItemClickListener onItemClickListener;
 
 	public BusinessesAdapter(Context context, Collection<Business> businessCollection) {
+		this.mContext=context;
 		this.validateUsersCollection(businessCollection);
 		this.layoutInflater =
 				(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -61,6 +64,19 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 	public void onBindViewHolder(UserViewHolder holder, final int position) {
 		final Business userModel = this.businessCollection.get(position);
 		holder.textViewTitle.setText(userModel.getName());
+
+// by roy, feb. 23 2016 review rate image.
+		Glide.with(mContext)
+				.load(userModel.getRating_img_url_small())
+				.thumbnail(0.5f)
+				.into(holder.imageView);
+// by roy, feb. 23 2016 food image.
+		/*
+		Glide.with(mContext)
+				.load(userModel.getRating_img_url_small())
+				.thumbnail(0.5f)
+				.into(holder.imageView);
+*/
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -94,10 +110,12 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 
 	static class UserViewHolder extends RecyclerView.ViewHolder {
 		TextView textViewTitle;
+		ImageView imageView;
 
 		public UserViewHolder(RowUserBinding rowUserBinding) {
 			super(rowUserBinding.getRoot());
 			textViewTitle = rowUserBinding.title;
+			imageView = rowUserBinding.avatar;
 		}
 	}
 }

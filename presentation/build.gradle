@@ -10,7 +10,7 @@ android {
   defaultConfig {
     minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
     targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
-
+      multiDexEnabled true
     applicationId globalConfiguration.getAt("androidApplicationId")
     versionCode globalConfiguration.getAt("androidVersionCode")
     versionName globalConfiguration.getAt("androidVersionName")
@@ -69,6 +69,7 @@ dependencies {
   compile presentationDependencies.recyclerView
   compile presentationDependencies.rxJava
   compile presentationDependencies.rxAndroid
+  compile 'com.github.bumptech.glide:glide:3.6.1'// by roy, feb. 23 2016
 
   androidTestCompile presentationTestDependencies.mockito
   androidTestCompile presentationTestDependencies.dexmaker
@@ -81,4 +82,5 @@ dependencies {
   androidTestCompile presentationTestDependencies.runner
   androidTestCompile presentationTestDependencies.rules
   androidTestCompile presentationTestDependencies.androidAnnotations
+
 }
