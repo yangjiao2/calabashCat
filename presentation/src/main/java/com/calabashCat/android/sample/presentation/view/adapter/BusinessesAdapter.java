@@ -64,19 +64,20 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 	public void onBindViewHolder(UserViewHolder holder, final int position) {
 		final Business userModel = this.businessCollection.get(position);
 		holder.textViewTitle.setText(userModel.getName());
+		holder.textViewReview.setText(Integer.toString(userModel.getReview_count()));
+
+// by roy, feb. 23 2016 food image.
+		Glide.with(mContext)
+				.load(userModel.getImage_url())
+				.thumbnail(0.5f)
+				.into(holder.imageView);
 
 // by roy, feb. 23 2016 review rate image.
 		Glide.with(mContext)
 				.load(userModel.getRating_img_url_small())
 				.thumbnail(0.5f)
-				.into(holder.imageView);
-// by roy, feb. 23 2016 food image.
-		/*
-		Glide.with(mContext)
-				.load(userModel.getRating_img_url_small())
-				.thumbnail(0.5f)
-				.into(holder.imageView);
-*/
+				.into(holder.RatingImgView);
+
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -110,12 +111,16 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 
 	static class UserViewHolder extends RecyclerView.ViewHolder {
 		TextView textViewTitle;
+		TextView textViewReview;
 		ImageView imageView;
+		ImageView RatingImgView;
 
 		public UserViewHolder(RowUserBinding rowUserBinding) {
 			super(rowUserBinding.getRoot());
 			textViewTitle = rowUserBinding.title;
+			textViewReview = rowUserBinding.reviewCount;
 			imageView = rowUserBinding.avatar;
+			RatingImgView = rowUserBinding.RatingImg;
 		}
 	}
 }

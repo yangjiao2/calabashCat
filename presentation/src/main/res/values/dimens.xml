@@ -10,7 +10,11 @@
 
   <!--Listview rows stuff-->
   <dimen name="lv_row_padding">5dp</dimen>
-  <dimen name="lv_row_text_size">20sp</dimen>
+  <dimen name="lv_row_text_size">15sp</dimen>
+  <dimen name="lv_row_review_count_size">10sp</dimen>
   <dimen name="lv_row_icon_width">50dp</dimen>
   <dimen name="lv_row_icon_padding">5dp</dimen>
+  <dimen name="lv_row_rating_image_width">50dp</dimen>
+  <dimen name="lv_row_rating_image_height">15dp</dimen>
+
 </resources>
