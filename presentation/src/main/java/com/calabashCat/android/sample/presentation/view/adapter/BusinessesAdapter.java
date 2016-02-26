@@ -63,8 +63,15 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 	@Override
 	public void onBindViewHolder(UserViewHolder holder, final int position) {
 		final Business userModel = this.businessCollection.get(position);
+		int reviewCount= userModel.getReview_count();
 		holder.textViewTitle.setText(userModel.getName());
-		holder.textViewReview.setText(Integer.toString(userModel.getReview_count()));
+
+// by roy, feb. 26 2016 rating count.
+		holder.textViewReview.setText(Integer.toString(reviewCount));
+		if(reviewCount>1)
+		holder.textViewReview.append(" reviews");
+		else
+			holder.textViewReview.append(" review");
 
 // by roy, feb. 23 2016 food image.
 		Glide.with(mContext)

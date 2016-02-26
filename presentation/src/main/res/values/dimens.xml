@@ -16,5 +16,6 @@
   <dimen name="lv_row_icon_padding">5dp</dimen>
   <dimen name="lv_row_rating_image_width">50dp</dimen>
   <dimen name="lv_row_rating_image_height">15dp</dimen>
+  <dimen name="lv_row_rating_image_padding">5dp</dimen>
 
 </resources>
