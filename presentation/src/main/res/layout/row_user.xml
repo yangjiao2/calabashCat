@@ -6,11 +6,10 @@
     <data class="com.calabashCat.android.sample.presentation.RowUserBinding">
 
     </data>
-<LinearLayout
+<RelativeLayout
     tools:ignore="UseCompoundDrawables"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:padding="@dimen/lv_row_padding"
     android:background="@drawable/selector_item_user"
     >
@@ -19,23 +18,44 @@
       android:id="@+id/avatar"
       android:layout_width="@dimen/lv_row_icon_width"
       android:layout_height="@dimen/lv_row_icon_width"
-      android:src="@drawable/ic_launcher"
       android:paddingLeft="@dimen/lv_row_icon_padding"
       android:paddingRight="@dimen/lv_row_icon_padding"
       android:contentDescription="@string/string_content_description"
       />
 
+
   <TextView
       android:id="@+id/title"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_toRightOf="@id/avatar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:textSize="@dimen/lv_row_text_size"
       android:textColor="@android:color/black"
-      android:gravity="center_vertical"
       android:singleLine="true"
       android:ellipsize="end"
       />
-
-</LinearLayout>
+    <ImageView
+        android:id="@+id/RatingImg"
+        android:layout_below="@id/title"
+        android:layout_toRightOf="@id/avatar"
+        android:layout_alignLeft="@id/title"
+        android:layout_width="@dimen/lv_row_rating_image_width"
+        android:layout_height="@dimen/lv_row_rating_image_height"
+        android:paddingLeft="@dimen/lv_row_rating_image_padding"
+        android:paddingRight="@dimen/lv_row_rating_image_padding"
+        android:contentDescription="@string/string_content_description"
+        />
+    <TextView
+        android:id="@+id/reviewCount"
+        android:layout_toRightOf="@id/RatingImg"
+        android:layout_below="@id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/lv_row_review_count_size"
+        android:textColor="@android:color/black"
+        android:singleLine="true"
+        android:ellipsize="end"
+        />
+</RelativeLayout>
 
 </layout>

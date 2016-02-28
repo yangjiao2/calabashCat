@@ -60,7 +60,8 @@ public class UserListViewModelTest {
 		userListViewModel = businessListFragment.getViewModel();
 
 		Collection<UserModel> userModelsCollection = userModelDataMapper.transformUsers(fakeUsersList);
-		businessesAdapter = new BusinessesAdapter(mActivityRule.getActivity(), userModelsCollection);
+		//roy3221  feb.23 2016
+		// businessesAdapter = new BusinessesAdapter(mActivityRule.getActivity(), userModelsCollection);
 		businessesAdapter.setOnItemClickListener(userListViewModel.onUserItemClick());
 		userListViewModel.showContentList(businessesAdapter);
 	}
