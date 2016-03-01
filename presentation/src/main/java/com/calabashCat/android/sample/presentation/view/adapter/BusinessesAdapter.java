@@ -128,6 +128,7 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.Us
 			textViewReview = rowUserBinding.reviewCount;
 			imageView = rowUserBinding.avatar;
 			RatingImgView = rowUserBinding.RatingImg;
+
 		}
 	}
 }

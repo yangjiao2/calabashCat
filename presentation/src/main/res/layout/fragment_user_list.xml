@@ -14,15 +14,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/searchLinear">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextSearch"
+            android:layout_weight="7"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_weight="1"
+            android:id="@+id/buttonSearch"/>
+    </LinearLayout>
+
 
   <android.support.v7.widget.RecyclerView
       android:id="@+id/rv_users"
       android:scrollbars="vertical"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:layout_below="@id/searchLinear"
       bind:visibility="@{viewModel.showContentList?View.VISIBLE:View.GONE}"
       bind:adapter="@{viewModel.usersListAdapter}"
       />
+
 
   <include
       layout="@layout/view_progress"
