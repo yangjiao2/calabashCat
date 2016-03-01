@@ -66,11 +66,16 @@ public class CloudUserDataStore implements UserDataStore {
 
 		// general params
 		params.put("term", "food");
-		params.put("limit", "5");
+		params.put("limit", "7");
 
 		// locale params
 		params.put("lang", "fr");
+
 		Observable<SearchResponse> response = restApi.search("San Francisco", params);
+
+		//Test used.
+//		String str = "San Francisco";
+//		Observable<SearchResponse> response = getSearchResponse(str, params);
 
 		return response;
 	}
