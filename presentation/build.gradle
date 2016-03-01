@@ -10,7 +10,6 @@ android {
   defaultConfig {
     minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
     targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
-      multiDexEnabled true
     applicationId globalConfiguration.getAt("androidApplicationId")
     versionCode globalConfiguration.getAt("androidVersionCode")
     versionName globalConfiguration.getAt("androidVersionName")
