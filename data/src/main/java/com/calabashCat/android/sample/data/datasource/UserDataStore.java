@@ -18,6 +18,9 @@ package com.calabashCat.android.sample.data.datasource;
 
 import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
+
+import java.util.Map;
+
 import rx.Observable;
 
 /**
@@ -28,6 +31,8 @@ public interface UserDataStore {
    * Get an {@link rx.Observable} which will emit a List of {@link SearchResponse}.
    */
   Observable<SearchResponse> getSearchResponse();
+
+  Observable<SearchResponse> getSearchResponse(String location, Map<String,String> params);
 
   /**
    * Get an {@link rx.Observable} which will emit a {@link Business} by its id.

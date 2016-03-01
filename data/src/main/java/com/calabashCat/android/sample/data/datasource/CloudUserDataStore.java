@@ -76,6 +76,13 @@ public class CloudUserDataStore implements UserDataStore {
 	}
 
 	@Override
+	public Observable<SearchResponse> getSearchResponse(String location, Map<String,String> params) {
+		Observable<SearchResponse> response = restApi.search(location, params);
+		return response;
+	}
+
+
+	@Override
 	public Observable<Business> getBusiness(final int userId) {
 //		return this.restApi.userEntityById(userId)
 //				.doOnNext(saveToCacheAction);
