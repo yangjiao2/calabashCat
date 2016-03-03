@@ -43,6 +43,20 @@
             android:text="@string/btn_text_load_data"
             bind:onClickListener="@{viewModel.onClickLoadData}"
             />
+        <Button
+            android:id="@+id/btn_ShowLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_text_show_location"
+            bind:onClickListener="@{viewModel.onClickLoadData}"
+            />
+        <TextView
+            android:id="@+id/lblLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:textSize="16dp" />
     </LinearLayout>
 
 </layout>
