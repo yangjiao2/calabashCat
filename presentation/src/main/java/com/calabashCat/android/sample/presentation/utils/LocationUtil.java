@@ -131,7 +131,7 @@ public  class LocationUtil implements GoogleApiClient.ConnectionCallbacks,
 
 
 
-@TargetApi(23)
+    @TargetApi(23)
     private boolean checkLocationPermission(){
 
         if(activity.checkSelfPermission(LOCATION_PERMISSION) != PackageManager.PERMISSION_GRANTED){
