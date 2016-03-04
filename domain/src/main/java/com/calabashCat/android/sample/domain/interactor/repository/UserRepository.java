@@ -20,6 +20,7 @@ import com.calabashCat.android.sample.data.dto.User;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Response;
 import rx.Observable;
@@ -32,6 +33,8 @@ public interface UserRepository {
 	 * Get an {@link Observable} which will emit a List of {@link User}.
 	 */
 	Observable<SearchResponse> getSearchResponse();
+
+	Observable<SearchResponse> getSearchResponse(String location, Map<String,String> params);
 
 	/**
 	 * Get an {@link Observable} which will emit a {@link User}.

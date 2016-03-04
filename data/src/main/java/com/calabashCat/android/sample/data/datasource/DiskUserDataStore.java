@@ -18,6 +18,9 @@ package com.calabashCat.android.sample.data.datasource;
 import com.calabashCat.android.sample.data.cache.UserCache;
 import com.calabashCat.android.sample.data.entities.Business;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
+
+import java.util.Map;
+
 import rx.Observable;
 
 /**
@@ -40,6 +43,9 @@ public class DiskUserDataStore implements UserDataStore {
   public Observable<SearchResponse> getSearchResponse() {
     return null;
   }
+
+  @Override
+  public Observable<SearchResponse> getSearchResponse(String location, Map<String,String> params) { return null; }
 
   @Override
   public Observable<Business> getBusiness(int userId) {

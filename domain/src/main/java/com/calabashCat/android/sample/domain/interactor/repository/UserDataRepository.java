@@ -23,6 +23,7 @@ import com.calabashCat.android.sample.data.datasource.UserDataStoreFactory;
 import com.calabashCat.android.sample.data.entities.SearchResponse;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Response;
 import rx.Observable;
@@ -43,6 +44,13 @@ public class UserDataRepository implements UserRepository {
 	public Observable<SearchResponse> getSearchResponse() {
 		final UserDataStore userDataStore = this.userDataStoreFactory.createCloudDataStore();
 		Observable<SearchResponse> searchResponse = userDataStore.getSearchResponse();
+		return searchResponse;
+	}
+
+	@Override
+	public Observable<SearchResponse> getSearchResponse(String location, Map<String,String> params) {
+		final UserDataStore userDataStore = this.userDataStoreFactory.createCloudDataStore();
+		Observable<SearchResponse> searchResponse = userDataStore.getSearchResponse(location, params);
 		return searchResponse;
 	}
 
