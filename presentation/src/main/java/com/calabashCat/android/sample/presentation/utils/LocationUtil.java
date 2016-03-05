@@ -134,13 +134,13 @@ public  class LocationUtil implements GoogleApiClient.ConnectionCallbacks,
     @TargetApi(23)
     private boolean checkLocationPermission(){
 
-        if(activity.checkSelfPermission(LOCATION_PERMISSION) != PackageManager.PERMISSION_GRANTED){
+        if(ActivityCompat.checkSelfPermission(activity.getBaseContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
 
             ActivityCompat.requestPermissions(activity,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_CODE_ACCESS_FINE_LOCATION);
 
-            return activity.checkSelfPermission(LOCATION_PERMISSION) == PackageManager.PERMISSION_GRANTED;
+            return ActivityCompat.checkSelfPermission(activity.getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
 
         }else{
 
