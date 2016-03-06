@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
-    <data class="com.calabashCat.android.sample.presentation.UserListBinding">
+    <data class="com.calabashCat.android.sample.presentation.UserCardBinding">
 
         <import type="android.view.View" />
 
@@ -33,7 +33,7 @@
 
         <include
             layout="@layout/material_big_image_card_layout"
-            bind:visibility="@{viewModel.showContentList?View.VISIBLE:View.GONE}" />
+            />
 
         <include
             layout="@layout/view_progress"
