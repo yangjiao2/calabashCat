@@ -93,4 +93,5 @@ dependencies {
   androidTestCompile presentationTestDependencies.rules
   androidTestCompile presentationTestDependencies.androidAnnotations
 
+  compile 'jp.wasabeef:recyclerview-animators:2.0.0'
 }

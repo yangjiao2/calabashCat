@@ -10,7 +10,7 @@
 
         <fragment
             android:id="@+id/fragmentUserList"
-            android:name="com.calabashCat.android.sample.presentation.view.fragment.BusinessListFragment"
+            android:name="com.calabashCat.android.sample.presentation.view.fragment.BusinessCardFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />

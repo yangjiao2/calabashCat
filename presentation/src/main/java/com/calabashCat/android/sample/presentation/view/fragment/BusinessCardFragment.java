@@ -14,17 +14,18 @@ import android.view.ViewGroup;
 
 import com.calabashCat.android.sample.presentation.R;
 import com.calabashCat.android.sample.presentation.UserListBinding;
-import com.calabashCat.android.sample.presentation.view.adapter.BusinessesLayoutManager;
-import com.calabashCat.android.sample.presentation.viewmodel.UserListViewModel;
+import com.calabashCat.android.sample.presentation.viewmodel.UserCardViewModel;
+import com.dexafree.materialList.view.MaterialListView;
 
 /**
- * Fragment that shows a list of Users.
+ * Fragment that shows a card of Users.
  */
-public class BusinessListFragment extends BaseFragment<UserListViewModel, UserListBinding> {
+public class BusinessCardFragment extends BaseFragment<UserCardViewModel, UserListBinding> {
 
-	public final static String TAG = BusinessListFragment.class.getSimpleName();
+	public final static String TAG = BusinessCardFragment.class.getSimpleName();
+	public MaterialListView mListView;
 
-	public BusinessListFragment() {
+	public BusinessCardFragment() {
 		super();
 	}
 
@@ -32,10 +33,10 @@ public class BusinessListFragment extends BaseFragment<UserListViewModel, UserLi
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 
-		setViewModel(new UserListViewModel());
-		setBinding(DataBindingUtil.<UserListBinding>inflate(inflater, R.layout.fragment_user_list, container, true));
-		getBinding().setViewModel(getViewModel());
 
+		setBinding(DataBindingUtil.<UserListBinding>inflate(inflater, R.layout.fragment_user_card_list, container, true));
+		setViewModel(new UserCardViewModel(this));
+		getBinding().setViewModel(getViewModel());
 		setupUI();
 
 		return getBinding().getRoot();
@@ -48,8 +49,7 @@ public class BusinessListFragment extends BaseFragment<UserListViewModel, UserLi
 	}
 
 	private void setupUI() {
-		getBinding().rvUsers.setLayoutManager(new BusinessesLayoutManager(getActivity()));
-
+		;
 	}
 
 	@Override

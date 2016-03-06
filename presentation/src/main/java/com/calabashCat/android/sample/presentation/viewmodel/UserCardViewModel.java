@@ -1,9 +1,10 @@
 package com.calabashCat.android.sample.presentation.viewmodel;
 
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
+import android.databinding.ViewDataBinding;
 import android.util.Log;
 import android.view.View;
 
@@ -16,19 +17,31 @@ import com.calabashCat.android.sample.presentation.AndroidApplication;
 import com.calabashCat.android.sample.presentation.navigation.ActivityNavigator;
 import com.calabashCat.android.sample.presentation.view.activity.BusinessDetailsActivity;
 import com.calabashCat.android.sample.presentation.view.adapter.BusinessesAdapter;
+import com.calabashCat.android.sample.presentation.view.fragment.BusinessCardFragment;
+import com.dexafree.materialList.view.MaterialListView;
 
 import java.util.Collection;
+
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
 /**
  * Created by boliu on 16-03-5.
  */
-public class CardListViewModel extends LoadingViewModel {
-	private final static String TAG = CardListViewModel.class.getSimpleName();
+public class UserCardViewModel extends LoadingViewModel {
+	private final static String TAG = UserCardViewModel.class.getSimpleName();
 
 	public final ObservableBoolean showContentList = new ObservableBoolean(false);
 
 	UseCase getUserList = new GetUserList(AndroidApplication.getContext());
 
+	private ViewDataBinding viewDataBinding;
+
+	private MaterialListView mListView;
+	private Fragment mContext;
+
+	public UserCardViewModel(Fragment context) {
+		this.mContext = context;
+	}
 
 	@BindView
 	@Override
@@ -45,11 +58,15 @@ public class CardListViewModel extends LoadingViewModel {
 	}
 
 	@BindView
-	public void showContentList(BusinessesAdapter businessesAdapter) {
+	public void showContentList() {
 		showLoading.set(false);
 		showRetry.set(false);
 		showContentList.set(true);
 		//usersListAdapter.set(businessesAdapter);
+		mListView.setItemAnimator(new SlideInLeftAnimator());
+		mListView.getItemAnimator().setAddDuration(300);
+		mListView.getItemAnimator().setRemoveDuration(300);
+
 	}
 
 	@BindView
@@ -59,6 +76,8 @@ public class CardListViewModel extends LoadingViewModel {
 
 	@Command
 	public void loadUsersCommand() {
+		mListView = ((BusinessCardFragment)mContext).mListView;
+
 		if (showLoading.get()) {
 			return;
 		}
@@ -69,9 +88,8 @@ public class CardListViewModel extends LoadingViewModel {
 
 				Log.d("a", "a");
 				Collection<Business> collection = searchResponse.getBusinesses();
-				BusinessesAdapter businessesAdapter = new BusinessesAdapter(AndroidApplication.getContext(), collection);
-				businessesAdapter.setOnItemClickListener(onUserItemClick());
-				showContentList(businessesAdapter);
+
+				showContentList();
 			}
 
 			@Override
