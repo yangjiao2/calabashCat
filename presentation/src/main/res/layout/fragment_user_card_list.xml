@@ -29,10 +29,6 @@
             android:layout_height="fill_parent" />
 
         <include
-            layout="@layout/material_big_image_card_layout"
-            />
-
-        <include
             layout="@layout/view_progress"
             bind:viewModel="@{viewModel}" />
 
