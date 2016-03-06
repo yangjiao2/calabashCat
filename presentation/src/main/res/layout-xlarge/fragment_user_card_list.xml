@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data class="com.calabashCat.android.sample.presentation.UserListBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.calabashCat.android.sample.presentation.viewmodel.CardListViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rv_users"-->
+        <!--android:scrollbars="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--bind:visibility="@{viewModel.showContentList?View.VISIBLE:View.GONE}"-->
+        <!--bind:adapter="@{viewModel.usersListAdapter}"-->
+        <!--/>-->
+        <com.dexafree.materialList.view.MaterialListView
+            android:id="@+id/material_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:column_count_portrait="2"
+            app:column_count_landscape="3" />
+
+        <include
+            layout="@layout/material_big_image_card_layout"
+            bind:visibility="@{viewModel.showContentList?View.VISIBLE:View.GONE}" />
+
+        <include
+            layout="@layout/view_progress"
+            bind:viewModel="@{viewModel}" />
+
+        <include
+            layout="@layout/view_retry"
+            bind:viewModel="@{viewModel}" />
+
+    </RelativeLayout>
+
+</layout>
